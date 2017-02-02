@@ -13,3 +13,5 @@ RUN apk update && apk add curl && apk add unzip && \
     rm jacoco.zip
 
 VOLUME "/jacoco"
+
+CMD /bin/sh -c "trap ':' TERM INT; sleep 3600 & wait"
