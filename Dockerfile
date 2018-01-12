@@ -1,7 +1,7 @@
 FROM alpine:latest
 
-ENV md5 9add26ba3689b0b9324284b5231aff51
-ENV jacoco_version 0.7.9
+ENV md5 c435884e5e7f8b600406ab829ee9302f
+ENV jacoco_version 0.8.0
 
 RUN apk update && apk add curl && apk add unzip && \
     curl -f https://repo1.maven.org/maven2/org/jacoco/jacoco/$jacoco_version/jacoco-$jacoco_version.zip -o jacoco.zip && \
