@@ -14,7 +14,7 @@ services:
       JAVA_TOOL_OPTIONS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
     image: jboss/wildfly
     volumes_from:
-    - service:jacoco:r
+    - service:jacoco:ro
 version: '2.0'
 
 ```
