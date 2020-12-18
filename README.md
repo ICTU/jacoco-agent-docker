@@ -28,17 +28,19 @@ version: '3.8'
 services:
   jacoco:
     image: devatypic/jacoco-agent-docker:0.8.6
+    volumes:
+      - jacoco:/jacoco:ro
   www:
     environment:
       JVM_ARGS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
     image: payara/server-full:5.2020.6-jdk11
+    ports:
+      - "8080:8080"
+      - "4848:4848"
     volumes:
-      - type: bind
-        source: ./jacoco
-        target: /jacoco
+      - jacoco:/jacoco:ro
 volumes:
   jacoco:
-
 ```
 
 #  Usage (docker-compose example payara/server-full from Dockerfile)
@@ -47,14 +49,17 @@ version: '3.8'
 services:
   jacoco:
     image: devatypic/jacoco-agent-docker:0.8.6
+    volumes:
+      - jacoco:/jacoco:ro
   www:
     environment:
       JVM_ARGS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
     build: .
+    ports:
+      - "8080:8080"
+      - "4848:4848"
     volumes:
-      - type: bind
-        source: ./jacoco
-        target: /jacoco
+      - jacoco:/jacoco:ro
 volumes:
   jacoco:
 
