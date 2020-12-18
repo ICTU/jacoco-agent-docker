@@ -8,7 +8,7 @@ Image containing the jacoco javaagent to use as a volume container.
 version: '3.8'
 services:
   jacoco:
-    image: devatypic/jacoco-agent-docker:0.8.6
+    image: ICTU/jacoco-agent-docker:0.8.6
   www:
     environment:
       JAVA_TOOL_OPTIONS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
@@ -27,7 +27,7 @@ volumes:
 version: '3.8'
 services:
   jacoco:
-    image: devatypic/jacoco-agent-docker:0.8.6
+    image: ICTU/jacoco-agent-docker:0.8.6
     volumes:
       - jacoco:/jacoco:ro
   www:
@@ -48,7 +48,7 @@ volumes:
 version: '3.8'
 services:
   jacoco:
-    image: devatypic/jacoco-agent-docker:0.8.6
+    image: ICTU/jacoco-agent-docker:0.8.6
     volumes:
       - jacoco:/jacoco:ro
   www:
