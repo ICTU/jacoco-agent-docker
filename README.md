@@ -9,6 +9,8 @@ version: '3.8'
 services:
   jacoco:
     image: ictu/jacoco-agent-docker:0.8.6
+    volumes:
+       - jacoco:/jacoco:ro
   www:
     environment:
       JAVA_TOOL_OPTIONS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
@@ -26,6 +28,8 @@ version: '3.8'
 services:
   jacoco:
     image: ictu/jacoco-agent-docker:0.8.6
+    volumes:
+      - jacoco:/jacoco:ro
   www:
     environment:
       JVM_ARGS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
@@ -45,6 +49,8 @@ version: '3.8'
 services:
   jacoco:
     image: ictu/jacoco-agent-docker:0.8.6
+    volumes:
+      - jacoco:/jacoco:ro
   www:
     environment:
       JVM_ARGS: -javaagent:/jacoco/lib/jacocoagent.jar=excludes=*_javassit_*:javax.xml.soap.*:oasis.*,output=tcpserver,address=*
